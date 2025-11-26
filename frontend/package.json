@@ -38,3 +38,10 @@
     "react-scripts": "5.0.1"
   }
 }
+{
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "vercel-build": "react-scripts build"
+  }
+}
