@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: documentgen_db
+      POSTGRES_USER: docgen_user
+      POSTGRES_PASSWORD: docgen_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://docgen_user:docgen_pass@db/documentgen_db
+      SECRET_KEY: your-secret-key-here
+      GEMINI_API_KEY: your-gemini-api-key
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
