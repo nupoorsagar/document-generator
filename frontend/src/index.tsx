@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="AI-powered document generator for business documents"
-    />
-    <title>AI Document Generator</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './App.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 </html>
